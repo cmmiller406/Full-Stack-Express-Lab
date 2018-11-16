@@ -1,0 +1,21 @@
+h2 {
+    font-family: 'Pacifico', cursive;
+    font-size: 40px;
+    text-align: center;
+    margin: 5px;
+}
+
+.list-container {
+    background-color: lavender;
+    color: black;
+    border: 2px dotted black;
+    padding: 5px;
+    width: 300px;
+    margin: 0 auto;
+    font-family: 'Raleway', sans-serif;
+    border-radius: 5px;
+}
+
+.bold {
+    font-weight: bolder;
+}
