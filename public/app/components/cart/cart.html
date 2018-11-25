@@ -1,0 +1,21 @@
+<section class="list-container">
+    <h1>Welcome to Gimbels!</h1>
+    <h2>Shopping Cart</h2>
+    <form class="new-item" ng-submit="$ctrl.addItem($ctrl.newItem);">
+        <p>Product: </p><input type="text" ng-model="$ctrl.newItem.product">
+        <p>Price: $</p><input type="text" ng-model="$ctrl.newItem.price">
+        <p>Quantity: </p><input type="text" ng-model="$ctrl.newItem.quantity">
+        <button>Add Item</button>
+    </form>
+    <section class="list-items-container">
+    <section class="list-items" ng-repeat="item in $ctrl.listOfItems">
+        <p>Product: <input class="update-input" type="text" ng-blur="$ctrl.updateItem(item);" ng-model="item.product"></p>
+        <p>Price: $ <input class="update-input" type="text" ng-blur="$ctrl.updateItem(item);" ng-model="item.price"></p>
+        <p>Quantity: <input class="update-input" type="text" ng-blur="$ctrl.updateItem(item);" ng-model="item.quantity"></p>
+        <button ng-click="$ctrl.deleteItem(item.id);">X</button>
+    </section>
+    </section>
+    <section class="photo">
+
+    </section>
+</section>

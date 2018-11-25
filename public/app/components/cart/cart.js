@@ -1,27 +1,31 @@
 "use strict";
 
 const cart = {
-    template: `
-    <section  class="list-container">
-        <h2>Shopping Cart</h2>
-        <ol>
-            <li ng-repeat="item in $ctrl.cartItems"> 
-            <p><span class="bold">Item:</span> {{ item.product }} </p>
-            <p><span class="bold">Price: </span>{{ item.price | currency }} </p>
-            <p><span class="bold"> Quantity: </span>{{ item.quantity }} </p>
-            </li>
-        </ol>
-    </section>
-    `,
+    templateUrl: "app/components/cart/cart.html",
     controller: ["CartService", function (CartService) {
         const vm = this;
-        CartService.getAllItems().then((response) => {
-            vm.cartItems = response.data;
-            console.log(vm.cartItems);
-        })
+
+        function updateList(result) {
+            vm.listOfItems = result.data;
+        };
+
+        CartService.getItem().then(updateList);
+
+        vm.addItem = (newItem) => {
+            CartService.addItem(newItem).then(updateList);
+        };
+
+        vm.deleteItem = (id) => {
+            CartService.deleteItem(id).then(updateList);
+        };
+
+        vm.updateItem = (editedItem) => {
+            CartService.updateItem(editedItem).then(updateList);
+        };
 
     }]
-}
+
+};
 
 angular
     .module("App")
